@@ -58,7 +58,7 @@ class BoyStateTests(unittest.TestCase):
     def test_auto_run_times_out(self):
         self.boy.start_auto_run()
         self.boy.auto_run_time = 5.0
-        self.boy.update(0.01)
+        self.boy.update()
         self.assertEqual(self.boy.state, 'IDLE')
 
 
