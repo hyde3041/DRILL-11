@@ -50,6 +50,11 @@ class BoyStateTests(unittest.TestCase):
         self.boy.update_auto_run(0.1)
         self.assertEqual(self.boy.face_dir, 1)
 
+    def test_direction_key_cancels_auto_run(self):
+        self.boy.start_auto_run()
+        self.boy.move_left()
+        self.assertEqual(self.boy.state, 'RUN_LEFT')
+
 
 if __name__ == '__main__':
     unittest.main()
