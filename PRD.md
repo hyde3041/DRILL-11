@@ -35,4 +35,8 @@ python main.py
 - animation_sheet.png
 - grass.png
 - PRD.md
+- boy-state-diagram.png
+- boy-state-diagram.svg
+- draw_state_diagram.py
+- test_boy.py
 - requirements.txt

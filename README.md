@@ -15,7 +15,7 @@ python main.py
 - `a`: Idle 상태에서 AutoRun 시작
 - 방향키: AutoRun 취소 후 해당 방향으로 이동
 
-자세한 요구사항은 `PRD.md`를 참고하세요.
+자세한 요구사항은 `PRD.md`를 참고하세요. 상태 전이는 `boy-state-diagram.png`와 `boy-state-diagram.svg`에서 확인할 수 있습니다.
 
 ## 상태 테스트
 
