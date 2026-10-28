@@ -6,6 +6,8 @@ from pico2d import (
 from transitions import Machine
 
 
+SPRITE_WIDTH = 100
+SPRITE_HEIGHT = 100
 IDLE_FRAMES = 8
 IDLE_FPS = 8.0
 RUN_FRAMES = 8
