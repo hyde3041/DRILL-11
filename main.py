@@ -3,6 +3,11 @@ from boy import Boy
 from grass import Grass
 
 
+CANVAS_WIDTH = 800
+CANVAS_HEIGHT = 600
+GAME_DELAY = 0.01
+
+
 # Game object class here
 def handle_events():
     global running
