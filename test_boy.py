@@ -55,6 +55,12 @@ class BoyStateTests(unittest.TestCase):
         self.boy.move_left()
         self.assertEqual(self.boy.state, 'RUN_LEFT')
 
+    def test_auto_run_times_out(self):
+        self.boy.start_auto_run()
+        self.boy.auto_run_time = 5.0
+        self.boy.update(0.01)
+        self.assertEqual(self.boy.state, 'IDLE')
+
 
 if __name__ == '__main__':
     unittest.main()
