@@ -38,6 +38,11 @@ class BoyStateTests(unittest.TestCase):
         self.boy.sleep()
         self.assertEqual(self.boy.state, 'SLEEP')
 
+    def test_sleep_wakes_to_idle(self):
+        self.boy.sleep()
+        self.boy.wake_up()
+        self.assertEqual(self.boy.state, 'IDLE')
+
 
 if __name__ == '__main__':
     unittest.main()
