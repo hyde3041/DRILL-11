@@ -109,13 +109,13 @@ class Boy:
     def update_run_left(self, frame_time):
         self.frame = (self.frame + RUN_FPS * frame_time) % RUN_FRAMES
         self.face_dir = -1
-        self.x = max(50, self.x - MOVE_SPEED * frame_time)
+        self.x = max(CANVAS_LEFT, self.x - MOVE_SPEED * frame_time)
         self.idle_time = 0.0
 
     def update_run_right(self, frame_time):
         self.frame = (self.frame + RUN_FPS * frame_time) % RUN_FRAMES
         self.face_dir = 1
-        self.x = min(750, self.x + MOVE_SPEED * frame_time)
+        self.x = min(CANVAS_RIGHT, self.x + MOVE_SPEED * frame_time)
         self.idle_time = 0.0
 
     def update_auto_run(self, frame_time):
@@ -148,22 +148,22 @@ class Boy:
     def draw(self):
         if self.state == 'SLEEP':
             self.image.clip_composite_draw(
-                0, 300, 100, 100,
-                -1.5707963267948966, '',
+                0, RIGHT_IDLE_ROW, SPRITE_WIDTH, SPRITE_HEIGHT,
+                SLEEP_ROTATION, '',
                 self.x, SLEEP_DRAW_Y, 100, 100,
             )
         elif self.state == 'AUTO_RUN':
-            row = 100 if self.face_dir == 1 else 0
+            row = RIGHT_RUN_ROW if self.face_dir == 1 else LEFT_RUN_ROW
             self.image.clip_draw(
-                int(self.frame) * 100, row, 100, 100,
+                int(self.frame) * SPRITE_WIDTH, row, SPRITE_WIDTH, SPRITE_HEIGHT,
                 self.x, self.y + 25, AUTO_RUN_SIZE, AUTO_RUN_SIZE,
             )
         elif self.state == 'RUN_RIGHT':
-            self.image.clip_draw(int(self.frame) * 100, 100, 100, 100, self.x, self.y)
+            self.image.clip_draw(int(self.frame) * SPRITE_WIDTH, RIGHT_RUN_ROW, SPRITE_WIDTH, SPRITE_HEIGHT, self.x, self.y)
         elif self.state == 'RUN_LEFT':
-            self.image.clip_draw(int(self.frame) * 100, 0, 100, 100, self.x, self.y)
+            self.image.clip_draw(int(self.frame) * SPRITE_WIDTH, LEFT_RUN_ROW, SPRITE_WIDTH, SPRITE_HEIGHT, self.x, self.y)
         elif self.face_dir == 1:
-            self.image.clip_draw(int(self.frame) * 100, 300, 100, 100, self.x, self.y)
+            self.image.clip_draw(int(self.frame) * SPRITE_WIDTH, RIGHT_IDLE_ROW, SPRITE_WIDTH, SPRITE_HEIGHT, self.x, self.y)
         else:
-            self.image.clip_draw(int(self.frame) * 100, 200, 100, 100, self.x, self.y)
+            self.image.clip_draw(int(self.frame) * SPRITE_WIDTH, LEFT_IDLE_ROW, SPRITE_WIDTH, SPRITE_HEIGHT, self.x, self.y)
 
