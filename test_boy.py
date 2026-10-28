@@ -27,6 +27,13 @@ class BoyStateTests(unittest.TestCase):
         self.boy.start_auto_run()
         self.assertEqual(self.boy.state, 'AUTO_RUN')
 
+    def test_auto_run_reverses_at_right_edge(self):
+        self.boy.start_auto_run()
+        self.boy.x = 750
+        self.boy.face_dir = 1
+        self.boy.update_auto_run(0.1)
+        self.assertEqual(self.boy.face_dir, -1)
+
 
 if __name__ == '__main__':
     unittest.main()
