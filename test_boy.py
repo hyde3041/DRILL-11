@@ -23,6 +23,10 @@ class BoyStateTests(unittest.TestCase):
     def test_starts_idle(self):
         self.assertEqual(self.boy.state, 'IDLE')
 
+    def test_auto_run_starts_from_idle(self):
+        self.boy.start_auto_run()
+        self.assertEqual(self.boy.state, 'AUTO_RUN')
+
 
 if __name__ == '__main__':
     unittest.main()
