@@ -34,6 +34,10 @@ class BoyStateTests(unittest.TestCase):
         self.boy.update_auto_run(0.1)
         self.assertEqual(self.boy.face_dir, -1)
 
+    def test_sleep_enters_from_idle(self):
+        self.boy.sleep()
+        self.assertEqual(self.boy.state, 'SLEEP')
+
 
 if __name__ == '__main__':
     unittest.main()
