@@ -31,7 +31,7 @@ BOY_START_Y = 90
 
 class Boy:
     def __init__(self):
-        self.x, self.y = 400, 90
+        self.x, self.y = BOY_START_X, BOY_START_Y
         self.frame = 0.0
         self.face_dir = 1
         self.image = load_image('animation_sheet.png')
