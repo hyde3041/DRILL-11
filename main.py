@@ -51,13 +51,13 @@ def render_world():
 
 running = True
 
-open_canvas()
+open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 reset_world()
 # game loop
 while running:
     handle_events()
     update_world()
     render_world()
-    delay(0.01)
+    delay(GAME_DELAY)
 # finalization code
 close_canvas()
